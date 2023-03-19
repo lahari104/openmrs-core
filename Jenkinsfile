@@ -14,7 +14,7 @@ pipeline{
         }
         stage('build'){
             steps{
-                sh """/opt/maven/bin/mvn package"""
+                sh """/usr/share/maven/bin/mvn package"""
             }
         }
         stage('archive artifacts'){
