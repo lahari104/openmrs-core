@@ -15,7 +15,7 @@ pipeline{
         stage('build'){
             steps{
                 withSonarQubeEnv('sonarqube') {
-                sh 'mvn clean package sonar:sonar -Dsonar.organization=openmrs-core'
+                sh 'mvn clean package sonar:sonar -Dsonar.organization=openmrs-core -Dsonar.project=openmrs -Dsonar.projectKey=openmrs-core_openmrs'
               }
             }
         }
