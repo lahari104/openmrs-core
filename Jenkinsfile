@@ -14,7 +14,9 @@ pipeline{
         }
         stage('build'){
             steps{
-                sh """/usr/share/maven/bin/mvn package"""
+                withSonarQubeEnv('sonarqube') {
+                sh 'mvn clean package sonar:sonar -Dsonar.organization=openmrs-core'
+              }
             }
         }
         stage('archive artifacts'){
