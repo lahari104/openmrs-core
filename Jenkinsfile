@@ -25,7 +25,7 @@ pipeline{
                       docker image build -t openmrs:2.0 .
                       docker tag openmrs:2.0 lahari23/openmrs:openmrs-2.0
                       docker push lahari23/openmrs:openmrs-2.0
-                      docker image rm -rf openmrs:2.0 lahari23/openmrs:openmrs-2.0
+                      docker image rm openmrs:2.0 lahari23/openmrs:openmrs-2.0
                       docker image ls
                 """
             }
