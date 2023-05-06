@@ -1,0 +1,36 @@
+---
+pool: 'Default'
+trigger:
+  - master
+parameters:
+  - name: docker_image_name
+    type: string
+    values: 
+      - "lahari23/openmrs"
+variables:
+  - name: image_tag
+    value:
+      - '1.0'
+      - '1.1'
+      - '1.2'
+stages:
+  - stage: 'build'
+    displayName: 'This stage is to build docker image and push to dockerhub'
+    pool: 'Default'
+    jobs:
+      - job: 'build_push'
+        displayName: 'This job is to build docker image and push to dockerhub'
+        steps:
+          - task: Docker@2
+            inputs:
+            containerRegistry: 'Docker_Hub'
+            repository: ${{ parameters.docker_image_name }}
+            command: 'buildAndPush'
+            Dockerfile: '**/Dockerfile'
+            tags: $(image_tag) 
+
+
+
+
+
+      
