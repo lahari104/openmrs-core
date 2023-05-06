@@ -22,10 +22,10 @@ pipeline{
             }
             steps{
                 sh """
-                      docker image build -t openmrs:1.0 .
-                      docker tag openmrs:1.0 lahari23/test:openmrs-1.0
-                      docker push lahari23/test:openmrs-1.0
-                      docker image rm -rf openmrs:1.0 lahari23/test:openmrs-1.0
+                      docker image build -t openmrs:2.0 .
+                      docker tag openmrs:2.0 lahari23/openmrs:openmrs-2.0
+                      docker push lahari23/openmrs:openmrs-2.0
+                      docker image rm -rf openmrs:2.0 lahari23/openmrs:openmrs-2.0
                       docker image ls
                 """
             }
